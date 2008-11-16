@@ -5,7 +5,7 @@ This project provides examples of testing web applications that use javascript a
 The examples were developed with Celerity version 0.0.4.
 
 Note: 
-* "Webrat":webrat is another excellent tool that can be used with Cucumber.  Check out the fork at "johnnyt/webrat":http://github.com/johnnyt/webrat/tree/master/
+* "Webrat":webrat is another excellent tool that can be used with Cucumber.
 * "jQuery":jquery is used in the javascript
 
 Specifying the required behaviour consists of 2 parts:
@@ -30,7 +30,7 @@ Install
 Verify the web application is installed correctly by
 # ruby start.rb
 # browse to "localhost:7000":http://localhost:7000
-You should see "Welcome to Ramaze"
+You should see "Welcome" and a list of example web pages.
 
 Verify jRuby, cucumber, rspec are installed correctly by
 # jrake features
@@ -95,9 +95,9 @@ You can explore celerity by using *jirb* as follows
   > jirb
   > require 'rubygems'
   > require 'celerity'
-  > browser = Celerity::IE.new
+  > browser = Celerity::Browser.new
   > browser.goto('http://localhost:7000/on_page_load')
-  > browser.page.as_xml.include '
+  > browser.html
 </pre>
 
 
