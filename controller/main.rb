@@ -29,6 +29,10 @@ class MainController < Ramaze::Controller
     @title = 'Testing an AJAX that automatically executes the response'
   end
   
+  def page_with_an_iframe
+    @title = 'Testing access to an iframe'
+  end
+  
   # the string returned at the end of the function is used as the html body
   # if there is no template for the action. if there is a template, the string
   # is silently ignored
