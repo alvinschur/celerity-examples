@@ -1,0 +1,16 @@
+<p>Press the button to see a secret message from javascript.</p>
+
+<button id='push_me'>Click me</button>
+
+<div id='secret_message'>
+</div>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+    // split the secret message into 2 strings so it does not match
+    // the expected string inadvertently
+    $('#push_me').click(function() {
+      $('#secret_message').append("That " + "tickles!");
+    });
+  });
+</script>

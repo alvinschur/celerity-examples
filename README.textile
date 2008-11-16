@@ -2,13 +2,19 @@ h2. Introduction
 
 This project provides examples of testing web applications that use javascript and AJAX.  The main tools are "Cucumber":cucumber to describe the required behaviour and "Celerity":celerity for simulating a web browser and executing the javascript.
 
+Note: 
+* "Webrat":webrat is another excellent tool that can be used with Cucumber.  Check out the fork at "johnnyt/webrat":http://github.com/johnnyt/webrat/tree/master/
+* "jQuery":jquery is used in the javascript
+
 Specifying the required behaviour consists of 2 parts:
 # running the web application using your favourite staging environment
 # driving the web application using jRuby, cucumber, celerity, rspec, and friends
 
+Quickstart: read feature files and step definitions in features/
+
 h2. Getting started
 
-Celerity requires "jRuby":jruby.  Celerity, cucumber, rspec, and other gems required for specifying the required behaviour are installed in the jRuby environment.
+Celerity requires "jRuby":jruby.  Celerity, cucumber, rspec, and other gems used for specifying the required behaviour are installed in the jRuby environment.
 
 Libraries required for running the application
 Install
@@ -17,6 +23,7 @@ Install
 * "Celerity":celerity
 * "Cucumber":cucumber
 * "Rspec":rspec
+* "hpricot":hpricot
 
 Verify the web application is installed correctly by
 # ruby start.rb
@@ -42,6 +49,35 @@ Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucum
 2 steps passed
 </pre>
 
+h2. Tips
+
+h3. Wait for AJAX to finish
+
+AJAX calls are executed asynchronously, which means we have to tell celerity to wait for the AJAX call to finish before trying to verify the results. 
+
+<pre>
+When "I wait for the AJAX call to finish" do
+  @browser.page.getEnclosingWindow().getThreadManager().joinAll(10000)
+end
+</pre>
+
+Which came from the "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAXDoesNotWork
+
+"Celerity FAQ":http://celerity.rubyforge.org/wiki/wiki.pl?GettingStarted#ajax shows another solution.
+
+
+
+h2. Using Celerity from jirb
+
+You can explore celerity by using *jirb* as follows
+<pre>
+  > jirb
+  > require 'rubygems'
+  > require 'celerity'
+  > browser = Celerity::IE.new
+  > browser.goto('http://localhost:7000/on_page_load')
+  > browser.page.as_xml.include '
+</pre>
 
 
 [cucumber]http://github.com/aslakhellesoy/cucumber/wikis
@@ -49,3 +85,6 @@ Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucum
 [jruby]http://jruby.codehaus.org
 [ramaze]http://ramaze.net
 [rspec]http://rspec.info
+[webrat]http://github.com/brynary/webrat/tree/master
+[jquery]http://jquery.com/
+[hpricot]http://code.whytheluckystiff.net/hpricot/

@@ -1,0 +1,12 @@
+<p>A secret message will appear below after the javascript runs on page load.</p>
+
+<div id='secret_message'>
+</div>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+    // split the secret message into 2 strings so it does not match
+    // the expected string inadvertently
+    $('#secret_message').append("Secret message: welcome" + " from page load");
+  });
+</script>

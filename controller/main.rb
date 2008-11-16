@@ -13,6 +13,18 @@ class MainController < Ramaze::Controller
     @title = "Welcome to Ramaze!"
   end
 
+  def on_page_load
+    @title = "Testing javascript run on page load"
+  end
+  
+  def buttons_with_javascript
+    @title = "Testing javascript called from a button"
+  end
+
+  def page_for_ajax_call_returning_text
+    @title = "Testing an AJAX call made on page load"
+  end
+  
   # the string returned at the end of the function is used as the html body
   # if there is no template for the action. if there is a template, the string
   # is silently ignored
