@@ -1,0 +1,51 @@
+h2. Introduction
+
+This project provides examples of testing web applications that use javascript and AJAX.  The main tools are "Cucumber":cucumber to describe the required behaviour and "Celerity":celerity for simulating a web browser and executing the javascript.
+
+Specifying the required behaviour consists of 2 parts:
+# running the web application using your favourite staging environment
+# driving the web application using jRuby, cucumber, celerity, rspec, and friends
+
+h2. Getting started
+
+Celerity requires "jRuby":jruby.  Celerity, cucumber, rspec, and other gems required for specifying the required behaviour are installed in the jRuby environment.
+
+Libraries required for running the application
+Install
+* "Ramaze":ramaze - Easy web app framework
+* "jRuby":jruby
+* "Celerity":celerity
+* "Cucumber":cucumber
+* "Rspec":rspec
+
+Verify the web application is installed correctly by
+# ruby start.rb
+# browse to "localhost:7000":http://localhost:7000
+You should see "Welcome to Ramaze"
+
+Verify jRuby, cucumber, rspec are installed correctly by
+# jrake features
+
+
+You should see
+
+<pre>
+Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucumber_installation.feature
+  In order verify web application behaviour
+  the development team should be able to 
+  run cucumber and celerity
+  Scenario: visit the web application home page  # features/verify_cucumber_installation.feature:6
+    When I visit the home page                   # features/step_definitions/first_steps.rb:19
+    Then I should see "Welcome to Ramaze!"       # features/step_definitions/first_steps.rb:23
+
+
+2 steps passed
+</pre>
+
+
+
+[cucumber]http://github.com/aslakhellesoy/cucumber/wikis
+[celerity]http://celerity.rubyforge.org
+[jruby]http://jruby.codehaus.org
+[ramaze]http://ramaze.net
+[rspec]http://rspec.info
