@@ -36,19 +36,19 @@ Verify jRuby, cucumber, rspec are installed correctly by
 # jrake features
 
 
-You should see
+You should see output similar to
 
 <pre>
-Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucumber_installation.feature
-  In order verify web application behaviour
-  the development team should be able to 
-  run cucumber and celerity
-  Scenario: visit the web application home page  # features/verify_cucumber_installation.feature:6
-    When I visit the home page                   # features/step_definitions/first_steps.rb:19
-    Then I should see "Welcome to Ramaze!"       # features/step_definitions/first_steps.rb:23
+  Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucumber_installation.feature
+    In order verify web application behaviour
+    the development team should be able to 
+    run cucumber and celerity
+    Scenario: visit the web application home page  # features/verify_cucumber_installation.feature:6
+      When I visit the home page                   # features/step_definitions/first_steps.rb:19
+      Then I should see "Welcome"                  # features/step_definitions/first_steps.rb:35
 
 
-2 steps passed
+  2 steps passed
 </pre>
 
 h2. Tips

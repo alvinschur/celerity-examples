@@ -4,7 +4,7 @@ class AjaxResponsesController < Ramaze::Controller
   
   
   def returning_text
-    'Simon says: surprise!xxx'
+    'Simon says: surprise!'
   end
 
   def returning_javascript

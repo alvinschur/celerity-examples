@@ -10,33 +10,24 @@ class MainController < Ramaze::Controller
 
   # the index action is called automatically when no other action is specified
   def index
-    @title = "Welcome to Ramaze!"
+    @examples = list_names(examples).sort
   end
 
-  def on_page_load
-    @title = "Testing javascript run on page load"
-  end
   
-  def buttons_with_javascript
-    @title = "Testing javascript called from a button"
+  private
+  
+  def examples
+    view_dir = File.dirname(__FILE__) + '/../view'
+    views = Dir[view_dir + '/*.xhtml']
+    views.reject! do |file| 
+      file.include?('error.xhtml') or file.include?('page.xhtml') or file.include?('index')
+    end
   end
 
-  def page_for_ajax_call_returning_text
-    @title = "Testing an AJAX call made on page load"
-  end
-
-  def page_for_ajax_executing_the_response_automatically
-    @title = 'Testing an AJAX that automatically executes the response'
-  end
-  
-  def page_with_an_iframe
-    @title = 'Testing access to an iframe'
-  end
-  
-  # the string returned at the end of the function is used as the html body
-  # if there is no template for the action. if there is a template, the string
-  # is silently ignored
-  def notemplate
-    "there is no 'notemplate.xhtml' associated with this action"
+  def list_names(examples)
+    url = 'http://localhost:7000/'
+    examples.map do |path| 
+      File.basename(path, '.xhtml')
+    end
   end
 end
