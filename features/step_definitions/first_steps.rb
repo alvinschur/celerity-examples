@@ -40,3 +40,8 @@ Then /^I should see a secret message "(.*)"$/ do |text|
   doc = Hpricot(@browser.page.as_xml)
   doc.search('#secret_message').text.should =~ /#{text}/m
 end
+
+Then /^I should not see a secret message "(.*)"$/ do |text|
+  doc = Hpricot(@browser.page.as_xml)
+  doc.search('#secret_message').text.should_not =~ /#{text}/m
+end

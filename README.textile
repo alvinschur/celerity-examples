@@ -2,6 +2,8 @@ h2. Introduction
 
 This project provides examples of testing web applications that use javascript and AJAX.  The main tools are "Cucumber":cucumber to describe the required behaviour and "Celerity":celerity for simulating a web browser and executing the javascript.
 
+The examples were developed with Celerity version 0.0.4.
+
 Note: 
 * "Webrat":webrat is another excellent tool that can be used with Cucumber.  Check out the fork at "johnnyt/webrat":http://github.com/johnnyt/webrat/tree/master/
 * "jQuery":jquery is used in the javascript
@@ -50,6 +52,13 @@ Feature: Verify Cucumber, celerity, rspec are installed  # features/verify_cucum
 </pre>
 
 h2. Tips
+
+h3. Links to Celerity documentation
+
+* "How to select elements":http://celerity.rubyforge.org/yard/Celerity/Container.html
+* "FAQ":http://celerity.rubyforge.org/wiki/wiki.pl
+* "Tutorial":http://celerity.rubyforge.org/wiki/wiki.pl?GettingStarted
+* "API docs":http://celerity.rubyforge.org/yard/
 
 h3. Wait for AJAX to finish
 

@@ -1,0 +1,12 @@
+<button id='show_alert'>Show alert</button>
+<div id='secret_message'>
+</div>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#show_alert').click( function() {
+      alert('The surprise is ' + 'in the alert box.');
+      $('#secret_message').append('After the alert' + ' box was displayed');
+    });
+  });
+</script>

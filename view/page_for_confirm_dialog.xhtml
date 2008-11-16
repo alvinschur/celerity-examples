@@ -1,0 +1,13 @@
+<button id='show_confirmation'>Show confirmation</button>
+<div id='secret_message'>
+</div>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#show_confirmation').click( function() {
+      var answer = confirm('Is this box good to go?');
+      if (answer == true) { $('#secret_message').append('You pressed OK') }
+      else { $('#secret_message').append('You pressed Cancel') }
+    });
+  });
+</script>
