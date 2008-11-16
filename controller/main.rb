@@ -24,6 +24,10 @@ class MainController < Ramaze::Controller
   def page_for_ajax_call_returning_text
     @title = "Testing an AJAX call made on page load"
   end
+
+  def page_for_ajax_executing_the_response_automatically
+    @title = 'Testing an AJAX that automatically executes the response'
+  end
   
   # the string returned at the end of the function is used as the html body
   # if there is no template for the action. if there is a template, the string

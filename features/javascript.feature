@@ -16,3 +16,14 @@ Feature: Access DOM after javascript runs
     When I visit a page making an AJAX call returning text
     And  I wait for the AJAX call to finish
     Then I should see a secret message "Simon says: surprise!"
+  
+  Scenario: an AJAX call returning javascript, executed automatically
+    When I visit a page making an AJAX call returning javascript, executed automatically
+    And  I wait for the AJAX call to finish
+    Then I should see a secret message "Message for you sir!"
+    And  Should work after celerity upgrades the bundled HtmlUnit
+  
+  Scenario: an AJAX call returning javascript, eval'ed on receipt
+    When I visit a page making an AJAX call returning javascript and eval the response
+    And  I wait for the AJAX call to finish
+    Then I should see a secret message "Message for you sir!"

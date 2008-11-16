@@ -7,7 +7,9 @@ class AjaxResponsesController < Ramaze::Controller
     'Simon says: surprise!xxx'
   end
 
-#  def returning_javascript
-#  end
+  def returning_javascript
+    response['Content-Type'] = 'application/x-javascript'
+    "$('#secret_message').append('Message for you sir!')"
+  end
 
 end

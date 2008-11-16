@@ -65,6 +65,18 @@ Which came from the "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAX
 
 "Celerity FAQ":http://celerity.rubyforge.org/wiki/wiki.pl?GettingStarted#ajax shows another solution.
 
+h3. Automatically executing the AJAX response doesn't work, yet
+
+Celerity uses "HtmlUnit":htmlunit under the covers to simulate a web browser and execute javascript.  HtmlUnit recently updated support for jQuery which should resolve this problem.
+
+A work around is to 'eval' the response manually.
+<pre>
+  $(document).ready(function() {
+    $.get('http://localhost:7000/ajax_responses/returning_javascript', function(data) {
+      eval(data);
+    });
+  });  
+</pre>
 
 
 h2. Using Celerity from jirb
@@ -88,3 +100,4 @@ You can explore celerity by using *jirb* as follows
 [webrat]http://github.com/brynary/webrat/tree/master
 [jquery]http://jquery.com/
 [hpricot]http://code.whytheluckystiff.net/hpricot/
+[htmlunit]http://htmlunit.sourceforge.net/

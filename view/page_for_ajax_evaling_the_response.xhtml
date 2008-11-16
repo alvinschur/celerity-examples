@@ -1,0 +1,12 @@
+<p>A secret message will appear below after the javascript runs on page load.</p>
+
+<div id='secret_message'>
+</div>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.get('http://localhost:7000/ajax_responses/returning_javascript', function(data) {
+      eval(data);
+    });
+  });
+</script>
