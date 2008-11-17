@@ -2,7 +2,7 @@ h2. Introduction
 
 This project provides examples of testing web applications that use javascript and AJAX.  The main tools are "Cucumber":cucumber to describe the required behaviour and "Celerity":celerity for simulating a web browser and executing the javascript.
 
-Thanks to Ashley Moran for the introduction to using cucumber, celerity, and rspec at: http://aviewfromafar.net/2008/10/2/geekup-sheffield-vi-from-specification-to-success
+Thanks to Ashley Moran for the introduction to using cucumber, celerity, and rspec at: "geekup-sheffield":http://aviewfromafar.net/2008/10/2/geekup-sheffield-vi-from-specification-to-success
 
 The examples were developed with Celerity version 0.0.4.
 
