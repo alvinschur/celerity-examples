@@ -75,13 +75,16 @@ AJAX calls are executed asynchronously, which means we have to tell celerity to 
 
 <pre>
 When "I wait for the AJAX call to finish" do
+  # TODO: use new syntax with the soon-to-be released version of celerity
+  # @browser.join_threads
+
   @browser.page.getEnclosingWindow().getThreadManager().joinAll(10000)
 end
 </pre>
 
 Which came from the "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAXDoesNotWork
 
-"Celerity FAQ":http://celerity.rubyforge.org/wiki/wiki.pl?GettingStarted#ajax shows another solution.
+"Celerity Ajax docs":http://wiki.github.com/jarib/celerity/ajax
 
 h3. Automatically executing the AJAX response doesn't work, yet
 
