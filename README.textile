@@ -57,6 +57,13 @@ h2. Tips
 
 h3. Links to Celerity documentation
 
+Documentation on Github
+
+* "Ajax docs":http://wiki.github.com/jarib/celerity/ajax
+* "FAQ":http://wiki.github.com/jarib/celerity/faq
+
+Documentation on rubyforge
+
 * "How to select elements":http://celerity.rubyforge.org/yard/Celerity/Container.html
 * "FAQ":http://celerity.rubyforge.org/wiki/wiki.pl
 * "Tutorial":http://celerity.rubyforge.org/wiki/wiki.pl?GettingStarted
