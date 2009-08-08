@@ -6,7 +6,7 @@
 # this will force the controller to be mounted on: /otherurl
 
 class MainController < Ramaze::Controller
-  layout '/page'
+  layout 'page'
 
   # the index action is called automatically when no other action is specified
   def index
