@@ -20,14 +20,13 @@ h2. Getting started
 
 Celerity requires "jRuby":jruby.  Celerity, cucumber, rspec, and other gems used for specifying the required behaviour are installed in the jRuby environment.
 
-Libraries required for running the application
 Install
-* "Ramaze":ramaze - Easy web app framework
-* "jRuby":jruby
-* "Celerity":celerity
-* "Cucumber":cucumber
-* "Rspec":rspec
-* "hpricot":hpricot
+* "Ramaze":ramaze (2008.11) Easy web app framework
+* "jRuby":jruby (1.3.1)
+* "Celerity":celerity (0.0.6)
+* "Cucumber":cucumber (0.3.94)
+* "Rspec":rspec (1.2.8)
+* "hpricot":hpricot (0.6.164) "jRuby instructions":http://kenai.com/projects/jruby/pages/Hpricot
 
 Verify the web application is installed correctly by
 # ruby start.rb
@@ -35,7 +34,7 @@ Verify the web application is installed correctly by
 You should see "Welcome" and a list of example web pages.
 
 Verify jRuby, cucumber, rspec are installed correctly by
-# jrake features
+# jrake cucumber
 
 
 You should see output similar to
@@ -73,18 +72,23 @@ h3. Wait for AJAX to finish
 
 AJAX calls are executed asynchronously, which means we have to tell celerity to wait for the AJAX call to finish before trying to verify the results. 
 
-<pre>
-When "I wait for the AJAX call to finish" do
-  # TODO: use new syntax with the edge version of celerity
-  # @browser.join_threads
+One option is to create a browser instance that automatically waits for AJAX calls to finish.
 
-  @browser.page.getEnclosingWindow().getThreadManager().joinAll(10000)
-end
+<pre>
+	@browser = Celerity::Browser.new(:resynchronize => true)
 </pre>
 
-Which came from the "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAXDoesNotWork
+Or you can explicitly wait for AJAX calls.
 
-"Celerity Ajax docs":http://wiki.github.com/jarib/celerity/ajax
+<pre>
+	When "I wait for the AJAX call to finish" do
+ 		@browser.wait
+	end
+</pre>
+
+Which came from the "Celerity Ajax docs":http://wiki.github.com/jarib/celerity/ajax
+ and "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAXDoesNotWork
+
 
 h3. Automatically executing the AJAX response doesn't work, yet
 

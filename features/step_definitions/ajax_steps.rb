@@ -11,7 +11,6 @@ When "I visit a page making an AJAX call returning javascript and eval the respo
 end
 
 When "I wait for the AJAX call to finish" do
-  # TODO: use new syntax with the edge version of celerity
-  # @browser.join_threads
-  @browser.page.getEnclosingWindow().getThreadManager().joinAll(10000)
+  # Manually wait for AJAX calls
+  @browser.wait
 end
