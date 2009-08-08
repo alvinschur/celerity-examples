@@ -20,7 +20,6 @@ Feature: Access DOM after javascript runs
   Scenario: an AJAX call returning javascript, executed automatically
     When I visit a page making an AJAX call returning javascript, executed automatically
     And  I wait for the AJAX call to finish
-    Then Should work after celerity upgrades the bundled HtmlUnit
     And  I should see a secret message "Message for you sir!"
   
   Scenario: an AJAX call returning javascript, eval'ed on receipt

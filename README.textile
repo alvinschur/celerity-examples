@@ -4,7 +4,7 @@ This project provides examples of testing web applications that use javascript a
 
 Thanks to Ashley Moran for the introduction to using cucumber, celerity, and rspec at: "geekup-sheffield":http://aviewfromafar.net/2008/10/2/geekup-sheffield-vi-from-specification-to-success
 
-The examples were developed with Celerity version 0.0.4.
+The examples were developed with Celerity version 0.0.6.
 
 Note: 
 * "Webrat":webrat is another excellent tool that can be used with Cucumber.
@@ -90,18 +90,15 @@ Which came from the "Celerity Ajax docs":http://wiki.github.com/jarib/celerity/a
  and "HtmlUnit FAQ":http://htmlunit.sourceforge.net/faq.html#AJAXDoesNotWork
 
 
-h3. Automatically executing the AJAX response doesn't work, yet
+h3. Automatically executing the AJAX response
 
-Celerity uses "HtmlUnit":htmlunit under the covers to simulate a web browser and execute javascript.  HtmlUnit recently updated support for jQuery which should resolve this problem.
+A jQuery AJAX request like
 
-A work around is to 'eval' the response manually.
 <pre>
-  $(document).ready(function() {
-    $.get('http://localhost:7000/ajax_responses/returning_javascript', function(data) {
-      eval(data);
-    });
-  });  
+	$.get('http://localhost:7000/ajax_responses/returning_javascript', null, null, 'script');
 </pre>
+
+is now automatically executed with celerity 0.0.6.
 
 
 h2. Using Celerity from jirb
